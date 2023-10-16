@@ -1,0 +1,15 @@
+1. Create a folder pythonenv (this can be any name)
+2. python3 -m venv <PATH>/pythonenv/ve-buliv
+3. activate Virtual Enviornment with below commnad
+C:\> <PATH>/pythonenv/ve-buliv\bin\activate.bat
+
+4. Install flask
+pip3 install flask
+
+You can view the installed packages in a Virtual Enviornment by running the command below  
+
+pip3 list --local
+
+5. install mysql connector
+
+pip3 install mysql-connector-python==8.0.17 
