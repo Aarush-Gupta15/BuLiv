@@ -16,15 +16,15 @@ def getPrograms():
     try:  
         cur = myconn.cursor()     
         #Reading the Employee data      
-        cur.execute("select * from PROGRAM")  
+        cur.execute("select NAME from PROGRAM")  
     
         #fetching the rows from the cursor object  
         result = cur.fetchall()  
-        #printing the result  
         
-        # for x in result:  
-        #     print(x);
-        #   
+        
+        for x in result:  
+            print(x[0]);
+          
         return result
     except:  
         myconn.rollback()  
