@@ -1,4 +1,5 @@
 from flask import Flask, render_template, request
+from model.programs import *
 app = Flask(__name__)
 
 # @app.route('/')
@@ -21,9 +22,14 @@ def login():
         return render_template('welcome.html')
     else:
         return "Invalid Username/Password"
+
+
 @app.route('/programs', methods=['GET', 'POST'])
 def programs():
-    return "showing programs"
+    results = getPrograms()
+    return render_template('programs.html',results=results)
+   
+
 
 
 if __name__ == "__main__":

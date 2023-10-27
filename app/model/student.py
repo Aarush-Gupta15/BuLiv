@@ -10,22 +10,6 @@ def getConnection():
     
 
 
-def getPrograms():
+def getStudents():
     getConnection()
-    try:  
-        cur = myconn.cursor()     
-        #Reading the Employee data      
-        cur.execute("select * from PROGRAM")  
     
-        #fetching the rows from the cursor object  
-        result = cur.fetchall()  
-        #printing the result  
-        
-        for x in result:  
-            print(x);  
-    except:  
-        myconn.rollback()  
-  
-    myconn.close()
-
-getPrograms()
