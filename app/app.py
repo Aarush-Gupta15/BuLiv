@@ -8,7 +8,7 @@ app = Flask(__name__)
 @app.route('/')
 def index():
     return render_template('index.html')
-    #return 'Hello, World!'
+    # return 'Hello, World!'
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
@@ -21,6 +21,9 @@ def login():
         return render_template('welcome.html')
     else:
         return "Invalid Username/Password"
+@app.route('/programs', methods=['GET', 'POST'])
+def programs():
+    return "showing programs"
 
 
 if __name__ == "__main__":
