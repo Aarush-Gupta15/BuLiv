@@ -1,5 +1,5 @@
 1. Create a folder pythonenv (this can be any name)
-2. python3 -m venv <PATH>/pythonenv/ve-buliv
+2. python3 -m venv <PATH>/pythonenv/d
 3. activate Virtual Enviornment with below commnad
 C:\> <PATH>/pythonenv/ve-buliv\bin\activate.bat
 
