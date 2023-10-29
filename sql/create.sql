@@ -6,3 +6,15 @@ USE BULIV;
 CREATE TABLE PROGRAM(
 ID INT PRIMARY KEY auto_increment,
 NAME VARCHAR(100));
+
+/* creating table for students*/
+CREATE TABLE STUDENTS(
+ID INT PRIMARY KEY auto_increment,
+FIRST_NAME varchar(100),
+SECOND_NAME varchar(100),
+COURSE_ID INT(10)
+);
+show tables
+select * from students
+insert into studentS(FIRST_NAME,SECOND_NAME,COURSE_ID) VALUES ("AARUSH","GUPTA",1) 
+
