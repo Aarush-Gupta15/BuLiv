@@ -29,6 +29,11 @@ def login():
 def programs():
     results = getprograms()
     return render_template('programs.html',results=results)
+
+@app.route('/registration',methods=['GET','POST'])
+def register():
+    pass
+
     
    
 
