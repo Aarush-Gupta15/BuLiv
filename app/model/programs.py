@@ -11,7 +11,7 @@ def getConnection():
     
 
 
-def getPrograms():
+def getprograms():
     getConnection()
     try:  
         cur = myconn.cursor()     
@@ -23,7 +23,7 @@ def getPrograms():
         
         
         for x in result:  
-            print(x[0]);
+            print(x[0])
           
         return result
     except:  
@@ -32,4 +32,4 @@ def getPrograms():
     myconn.close()
 
 
-getPrograms()
+getprograms()

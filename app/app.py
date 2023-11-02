@@ -1,5 +1,6 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template,request
 from model.programs import *
+#from model.student import*
 app = Flask(__name__)
 
 # @app.route('/')
@@ -21,13 +22,14 @@ def login():
         #return "Welcome " + userName
         return render_template('welcome.html')
     else:
-        return "Invalid Username/Password"
+        return "Invalid Uzername/Password"
 
 
 @app.route('/programs', methods=['GET', 'POST'])
 def programs():
-    results = getPrograms()
+    results = getprograms()
     return render_template('programs.html',results=results)
+    
    
 
 
