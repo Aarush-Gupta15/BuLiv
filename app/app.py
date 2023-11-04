@@ -30,9 +30,18 @@ def programs():
     results = getprograms()
     return render_template('programs.html',results=results)
 
-@app.route('/registration',methods=['GET','POST'])
+@app.route('/register',methods=['GET','POST'])
 def register():
-    pass
+    return render_template('registration.html')
+    #if request.method=='POST':
+       # pass
+    print("HELLO")
+    firstname=request.form['fname']
+    print(firstname)
+    #lastname=request.form['']
+
+    
+
 
     
    

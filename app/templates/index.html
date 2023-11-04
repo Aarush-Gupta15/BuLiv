@@ -1,14 +1,74 @@
 <!DOCTYPE html>
-<title>HOSTEL MANGEMENT SYSTEM</title>
-<h1>BuLiv</h1>
-<img src="/static/project.jpg" alt="BU" width="500" height ="600">
+<html lang="en">
 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HOSTEL MANAGEMENT SYSTEM</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+        }
 
-<form action="/login" method="post">
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #ffffff;
+            box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            margin-top: 50px;
+        }
 
-    <div>User Name: <input type="text" name="UserName"></div>
-    <div>Password: <input type="text" name="Password"></div>
-    <div><input type="Submit" name="Login"></div>
+        h1 {
+            color: #007bff;
+        }
 
-</form>
+        form {
+            margin-top: 20px;
+        }
+
+        img {
+            display: block;
+            margin: 0 auto;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 8px;
+            margin-top: 8px;
+            box-sizing: border-box;
+        }
+
+        input[type="submit"] {
+            background-color: #007bff;
+            color: #ffffff;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>HOSTEL MANAGEMENT SYSTEM</h1>
+        <img src="/static/project.jpg" alt="BU" width="500" height="600">
+
+        <form action="/login" method="post">
+            <div>User Name: <input type="text" name="UserName"></div>
+            <div>Password: <input type="text" name="Password"></div>
+            <div><input type="submit" name="Login"></div>
+        </form>
+    </div>
+</body>
+
 </html>
