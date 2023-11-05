@@ -10,7 +10,7 @@ def getConnection():
     
 
 
-def addstudents(mobilenumber,firstname,lastnamme,selectcourse):
+def addstudents(mobilenumber,firstname,lastname,selectcourse):
     getConnection()
 
     mysqlquery = "insert into studentS(MOBILE,FIRST_NAME,SECOND_NAME,COURSE_ID) VALUES (%s, %s, %s,%s)"
