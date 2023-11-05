@@ -47,6 +47,7 @@ def addStudent():
         #results=getStudents(firstname,lastname,selectedcourse)
         print(firstname,lastname,selectedcourse,mobilenumber)
         addstudents(mobilenumber,firstname,lastname,selectedcourse)
+        return render_template('registration_result.html',firstname=firstname,mobilenumber=mobilenumber)
 
     
 
