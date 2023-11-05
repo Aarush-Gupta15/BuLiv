@@ -10,11 +10,12 @@ NAME VARCHAR(100));
 /* creating table for students*/
 CREATE TABLE STUDENTS(
 ID INT PRIMARY KEY auto_increment,
+MOBILE varchar(20) NOT NULL,
 FIRST_NAME varchar(100),
 SECOND_NAME varchar(100),
-COURSE_ID INT(10)
+COURSE_ID INT(10),
+UNIQUE (MOBILE)
 );
 show tables
 select * from students
-insert into studentS(FIRST_NAME,SECOND_NAME,COURSE_ID) VALUES ("AARUSH","GUPTA",1) 
-
+insert into students(MOBILE,FIRST_NAME,SECOND_NAME,COURSE_ID) VALUES ("8826670530","AARUSH","GUPTA",1) 

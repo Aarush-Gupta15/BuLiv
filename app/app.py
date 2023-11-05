@@ -33,8 +33,14 @@ def programs():
 @app.route('/register',methods=['GET','POST'])
 def register():
     return render_template('registration.html')
-    #if request.method=='POST':
-       # pass
+   
+    print("HELLO")
+    firstname=request.form['fname']
+    print(firstname)
+    #lastname=request.form['']
+
+@app.route('/addStudent',methods=['GET','POST'])
+def addStudent():
     print("HELLO")
     firstname=request.form['fname']
     print(firstname)
