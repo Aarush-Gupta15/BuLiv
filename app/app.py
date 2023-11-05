@@ -1,5 +1,6 @@
 from flask import Flask, render_template,request
 from model.programs import *
+from model.student import*
 #from model.student import*
 app = Flask(__name__)
 
@@ -33,18 +34,16 @@ def programs():
 @app.route('/register',methods=['GET','POST'])
 def register():
     return render_template('registration.html')
-   
-    print("HELLO")
-    firstname=request.form['fname']
-    print(firstname)
-    #lastname=request.form['']
+    if request.method=='POST':
+       # pass
+        print("HELLO")
+        firstname=request.form['fname']
+        lastname=request.form['lname']
+        selectedcourse=request.form['dropbox']
+        results=getStudents(firstname,lastname,selectedcourse)
+        return 'registered done'
 
-@app.route('/addStudent',methods=['GET','POST'])
-def addStudent():
-    print("HELLO")
-    firstname=request.form['fname']
-    print(firstname)
-    #lastname=request.form['']
+    
 
     
 
