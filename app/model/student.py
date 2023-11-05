@@ -10,13 +10,13 @@ def getConnection():
     
 
 
-def getStudents(firstname,lastnamme,selectcourse):
+def addstudents(mobilenumber,firstname,lastnamme,selectcourse):
     getConnection()
-    
-    mysqlquery = "insert into studentS(FIRST_NAME,SECOND_NAME,COURSE_ID) VALUES (%s, %s, %s, %s)"
-    mycursor = mydb.cursor()
-    values = (id, fname, lastname, selectcourse)  
+
+    mysqlquery = "insert into studentS(MOBILE,FIRST_NAME,SECOND_NAME,COURSE_ID) VALUES (%s, %s, %s,%s)"
+    mycursor = myconn.cursor()
+    values = (mobilenumber, firstname, lastname, selectcourse)  
     mycursor.execute(mysqlquery, values)
-    mydb.commit() 
-    
+    myconn.commit() 
+    print("registeed succesfully")
     

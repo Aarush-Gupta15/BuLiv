@@ -18,4 +18,3 @@ UNIQUE (MOBILE)
 );
 show tables
 select * from students
-insert into students(MOBILE,FIRST_NAME,SECOND_NAME,COURSE_ID) VALUES ("8826670530","AARUSH","GUPTA",1) 

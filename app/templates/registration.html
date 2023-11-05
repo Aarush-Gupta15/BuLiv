@@ -49,18 +49,21 @@
 </head>
 <body>
 
-<form action="/addStudent">
+<form action="/addStudent" method="POST">
     <label for="fname">First name:</label>
     <input type="text" id="fname" name="fname"><br>
     
     <label for="lname">Last name:</label>
     <input type="text" id="lname" name="lname"><br>
     
+    <label for="mobile">MOBILE NUMBER:</label>
+    <input type="text" id="mobile" name="mobile"><br>
+    
     <label for="dropbox">Select the course:</label>
-    <select id="dropbox" name="dropbox">
-        <option value="option1">BTECH</option>
-        <option value="option2">BCA</option>
-        <option value="option3">BBA</option>
+    <select id="program" name="program">
+        <option value="1">BTECH</option>
+        <option value="2">BCA</option>
+        <option value="3">BBA</option>
     </select><br>
     
     <input type="submit" value="Submit">
