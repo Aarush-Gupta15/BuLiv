@@ -19,4 +19,18 @@ def addstudents(mobilenumber,firstname,lastname,selectcourse):
     mycursor.execute(mysqlquery, values)
     myconn.commit() 
     print("registeed succesfully")
+
+def printstudents():
+    getConnection()
+
+    mysqlquery = "SELECT * FROM STUDENTS"
+    mycursor = myconn.cursor()
+    mycursor.execute(mysqlquery)
+    allstudent=mycursor.fetchall()
+    return allstudent
+
+
+
+    
+
     
