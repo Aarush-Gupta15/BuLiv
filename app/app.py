@@ -49,20 +49,11 @@ def addStudent():
         addstudents(mobilenumber,firstname,lastname,selectedcourse)
         return render_template('registration_result.html',firstname=firstname,mobilenumber=mobilenumber)
 
-@app.route('/viewstudents',methods=['GET,POST']) 
+@app.route('/viewstudents', methods=['GET','POST'])
 def viewstudents():
-    print("hello")
-    allstudents=printstudents()
-    return render_template('showstudents.html',results=allstudents)
-
-
-
-    
-
-
-    
-   
-
+        
+        allstudents=printstudents()
+        return render_template('showstudents.html',results=allstudents)
 
 
 if __name__ == "__main__":
