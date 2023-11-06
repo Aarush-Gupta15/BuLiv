@@ -9,7 +9,7 @@ def getConnection():
     #creating the cursor object  
     
 
-#inserting the values from users
+#inserting the values
 def addstudents(mobilenumber,firstname,lastname,selectcourse):
     getConnection()
 
@@ -27,7 +27,9 @@ def printstudents():
     mycursor = myconn.cursor()
     mycursor.execute(mysqlquery)
     allstudent=mycursor.fetchall()
+    #print(allstudent)
     return allstudent
+#printstudents()
 
 
 
