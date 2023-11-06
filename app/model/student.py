@@ -9,7 +9,7 @@ def getConnection():
     #creating the cursor object  
     
 
-
+#inserting the values from users
 def addstudents(mobilenumber,firstname,lastname,selectcourse):
     getConnection()
 

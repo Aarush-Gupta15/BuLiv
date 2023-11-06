@@ -53,7 +53,7 @@ def addStudent():
 def viewstudents():
     print("hello")
     allstudents=printstudents()
-    return render_template('showstudents.html',results=allstudent)
+    return render_template('showstudents.html',results=allstudents)
 
 
 
