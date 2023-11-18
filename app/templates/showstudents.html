@@ -6,57 +6,127 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>List of Students</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f5f5f5;
-            margin: 0;
-            padding: 0;
-        }
-
-        .container {
-            max-width: 600px;
-            margin: 0 auto;
-            padding: 20px;
-            background-color: #ffffff;
-            box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
-            border-radius: 10px;
-            margin-top: 50px;
-        }
-
         h3 {
             text-align: center;
             color: #333333;
         }
-        
-        .program {
-            font-weight: bold;
-            margin-bottom: 10px;
-            color: #007bff;
+
+        #myInput {
+        background-image: url('/static/searchicon1.png'); /* Add a search icon to input */
+        background-position: 10px 12px; /* Position the search icon */
+        background-repeat: no-repeat; /* Do not repeat the icon image */
+        width: 100%; /* Full-width */
+        font-size: 16px; /* Increase font-size */
+        padding: 12px 20px 12px 40px; /* Add some padding */
+        border: 1px solid #ddd; /* Add a grey border */
+        margin-bottom: 12px; /* Add some space below the input */
+        }
+
+        #myTable {
+        border-collapse: collapse; /* Collapse borders */
+        width: 100%; /* Full-width */
+        border: 1px solid #ddd; /* Add a grey border */
+        font-size: 18px; /* Increase font-size */
+        }
+
+        #myTable th, #myTable td {
+        text-align: left; /* Left-align text */
+        padding: 12px; /* Add padding */
+        }
+
+        #myTable tr {
+        /* Add a bottom border to all table rows */
+        border-bottom: 1px solid #ddd;
+        }
+
+        #myTable tr.header, #myTable tr:hover {
+        /* Add a grey background color to the table header and on hover */
+        background-color: #f1f1f1;
         }
     </style>
+
 </head>
 
 <body>
-    <div class="container">
-        <h3>List of Students</h3>
-        <table border="1">
-        <tr>
-            <th>Sr No</th>
-            <th>Name</th>
-            <th>Mobile</th>
-        </tr>
-        
-        {% for x in results %}
+    <h3>List of Students</h3>
+    <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names..">
+
+    <form action="/allocateRoom" method="post">
+    <table id="myTable">
+    <tr class="header">
+        <th style="width:20%;">Sr No</th>
+        <th style="width:30%;">Name</th>
+        <th style="width:30%;">Mobile</th>
+        <th style="width:20%;">Room No</th>
+    </tr>
+    {% for x in results %}
         <tr>
             <td>{{ x[0] }}</td>
             <td>{{ x[2] }} {{ x[3] }}</td>
             <td>{{ x[1] }}</td>
-        </tr>
-        
-        {% endfor %}
+            
+            {% if x[5] is not none %}
+            
+            <form id="form-roomDetails" action="/roomDetail" method="get">
+                <td> <a  href="#" onclick="submitFormRoomDetails()"> {{ x[5] }}</a></td>
+            </form>
+            
+            {% else %}
+            <form id="form-showAllocateRoom" action="/showAllocateRoom" method="post">
+                
+                <!-- <td><input type="submit" value="Allocate Room"/> </td> -->
+                <input type="hidden" id="studentId" name="studentId" value='{{ x[0] }}'>
+                <input type="hidden" id="fname" name="fname" value='{{ x[2] }}'>
+                <input type="hidden" id="lname" name="lname" value='{{ x[3] }}'>
+                <td><button onclick="submitShowAllocationRoom()">Allocate Room</button></td>
 
-        </table>
+            </form>
+            {% endif %}
+        </tr>
+    
+    {% endfor %}
+
+    </table>
+    </form>
     </div>
+    <script>
+function myFunction() {
+  // Declare variables
+  var input, filter, table, tr, td, i, txtValue;
+  input = document.getElementById("myInput");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("myTable");
+  tr = table.getElementsByTagName("tr");
+
+  // Loop through all table rows, and hide those who don't match the search query
+  for (i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td")[1];
+    if (td) {
+      txtValue = td.textContent || td.innerText;
+      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    }
+  }
+}
+function submitFormRoomDetails() {
+        let form = document.getElementById("form-roomDetails");
+        form.submit();
+}
+
+function submitShowAllocationRoom() {
+        let form = document.getElementById("form-showAllocateRoom");
+        form.submit();
+}
+
+
+</script>
+
+
+
+
 </body>
 
 </html>

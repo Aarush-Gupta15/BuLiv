@@ -1,6 +1,16 @@
+#!/usr/bin/env python
+#!interpreter [optional-arg]
+__author__ = "Aarush Gupta"
+__version__ = "1.0"
+__maintainer__ = "Aarush Gupta"
+__email__ = "rob@spot.colorado.edu"
+__status__ = "Under Review"
+
+
 from flask import Flask, render_template,request
 from model.programs import *
 from model.student import *
+from model.rooms import *
 #from model.student import*
 app = Flask(__name__)
 
@@ -54,6 +64,34 @@ def viewstudents():
         
         allstudents=printstudents()
         return render_template('showstudents.html',results=allstudents)
+
+
+@app.route('/showAllocateRoom', methods=['GET','POST'])
+def showAllocateRoom():
+        
+        studentId=request.form['studentId']
+        firstname=request.form['fname']
+        lastname=request.form['lname']
+
+        return render_template('room-allocation.html',studentId=studentId,firstname=firstname,lastname=lastname)
+
+        print("Show allocate room")
+
+
+@app.route('/allocateRoom',methods=['GET','POST'])
+def allocateRoom():
+       
+        studentId=request.form['studentId']
+        roomType=request.form['roomType']
+        fromDate=request.form['fromDate']
+        toDate=request.form['toDate']
+       
+        print(studentId,roomType,fromDate,toDate)
+        allocatetRoom(studentId,roomType,fromDate,toDate)
+
+    # viewstudents()
+       
+
 
 
 if __name__ == "__main__":

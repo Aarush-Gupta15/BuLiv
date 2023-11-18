@@ -23,7 +23,10 @@ def addstudents(mobilenumber,firstname,lastname,selectcourse):
 def printstudents():
     getConnection()
 
-    mysqlquery = "SELECT * FROM STUDENTS"
+    # mysqlquery = "SELECT * FROM STUDENTS"
+
+    mysqlquery = "select s.ID, MOBILE, FIRST_NAME, SECOND_NAME, COURSE_ID,ROOM_ID from students s LEFT JOIN ROOM_ALLOTMENT ra on s.ID=ra.STUDENT_ID"
+
     mycursor = myconn.cursor()
     mycursor.execute(mysqlquery)
     allstudent=mycursor.fetchall()

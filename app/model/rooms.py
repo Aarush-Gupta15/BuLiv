@@ -10,7 +10,7 @@ def getConnection():
     
 
 #inserting the values
-def allotRoom(studentId,roomType,fromDate,toDate):
+def allocatetRoom(studentId,roomType,fromDate,toDate):
     getConnection()
 
     freeRooms = getFreeRooms(roomType)
@@ -28,9 +28,10 @@ def allotRoom(studentId,roomType,fromDate,toDate):
 
 def updateRoomAvilbility(roomId):
     getConnection()
-    mysqlquery = "UPDATE ROOMS SET AVAILABILITY='BOOKED' WHERE ID=(?)"
+    mysqlquery = "UPDATE ROOMS SET AVAILABILITY='BOOKED' WHERE ID = %s"
     mycursor = myconn.cursor()
-    mycursor.execute(mysqlquery,roomId)
+    values = (int(roomId),)
+    mycursor.execute(mysqlquery,values)
     myconn.commit() 
     print("updated succesfully")
 
@@ -57,7 +58,7 @@ def printstudents():
     return allstudent
 #printstudents()
 
-allotRoom(2,"DOUBLE","2022-05-22","2022=05-26")
+#allocatetRoom(2,"DOUBLE","2022-05-22","2022=05-26")
 
     
 
