@@ -68,6 +68,23 @@ def viewstudents():
         return render_template('showstudents.html',results=allstudents)
 
 
+@app.route('/roomDetails', methods=['GET','POST'])
+def roomDetails():
+        roomId=request.form['roomId']
+        results=getRoomById(roomId)
+        # allstudents=printstudents()
+        return render_template('showRoomDetails.html',results=results)
+
+@app.route('/viewRooms', methods=['GET','POST'])
+def viewRooms():
+        
+        results=getAllRooms()
+        # allstudents=printstudents()
+        return render_template('showAllRooms.html',results=results)
+
+
+
+
 @app.route('/showAllocateRoom', methods=['GET','POST'])
 def showAllocateRoom():
         

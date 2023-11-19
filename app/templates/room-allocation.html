@@ -50,7 +50,7 @@
         }
     </style>
 </head>
-<body>
+<body onload="setDefault()">
     <form action="/home" method="post" class="form-group-home">
         <div> <input type="submit" name="home" value="Home"></div>
     </form>
@@ -70,11 +70,20 @@
     <div>    <label for="fromDate">From Date: </label></div>
     <div><input type="date" id="fromDate" name="fromDate" /> </div>
     <div> <label for="toDate">To Date: </label></div>
-    <div><input type="date" id="toDate"  name="toDate"/></div>
+    <div><input type="date" id="toDate"  name="toDate" /></div>
     <div><input type="submit" value="Allocate Room"></div>
     
 </form>
 
 
 </body>
+<script>
+
+function setDefault() {
+    document.getElementById('fromDate').value = new Date().toDateInputValue();
+}
+
+
+
+</script>
 </html>

@@ -63,8 +63,31 @@ def getFreeRooms(roomType):
 #     return allstudent
 # #printstudents()
 
-allFreeRooms = getFreeRooms("3")
-print(len(allFreeRooms))
+def getRoomById(roomId):
+    getConnection()
+
+    mysqlquery = "SELECT * FROM ROOMS WHERE ID =" + roomId
+    print(mysqlquery)
+    mycursor = myconn.cursor()
+    mycursor.execute(mysqlquery)
+    result=mycursor.fetchall()
+    print(result)
+    return result
+
+def getAllRooms():
+    getConnection()
+
+    mysqlquery = "SELECT * FROM ROOMS"
+    print(mysqlquery)
+    mycursor = myconn.cursor()
+    mycursor.execute(mysqlquery)
+    result=mycursor.fetchall()
+    print(result)
+    return result
+
+# allFreeRooms = getFreeRooms("3")
+# print(len(allFreeRooms))
+getRoomById("1")
     
 
     

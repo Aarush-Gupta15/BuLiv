@@ -48,41 +48,26 @@
 </head>
 
 <body>
-    <h3>List of Students</h3>
-    <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names..">
+    <h3>Room Details</h3>
 
   
     <table id="myTable">
     <tr class="header">
-        <th style="width:20%;">Sr No</th>
-        <th style="width:30%;">Name</th>
-        <th style="width:30%;">Mobile</th>
         <th style="width:20%;">Room No</th>
+        <th style="width:30%;">Block</th>
+        <th style="width:30%;">Capacity</th>
+        <th style="width:20%;">Current number of Student</th>
     </tr>
     {% for x in results %}
         <tr>
             <td>{{ x[0] }}</td>
-            <td>{{ x[2] }} {{ x[3] }}</td>
             <td>{{ x[1] }}</td>
+            <td>{{ x[2] }}</td>
+            <td>{{ x[3] }}</td>
             
-            {% if x[5] is not none %}
+          
             
-            <form id="form-roomDetails" action="/roomDetails" method="post">
-                <input type="hidden" id="roomId" name="roomId" value='{{ x[5] }}''>
-                <td> <a  href="#" onclick="submitFormRoomDetails()"> {{ x[5] }}</a></td>
-            </form>
             
-            {% else %}
-            <form id="form-showAllocateRoom" action="/showAllocateRoom" method="post">
-                
-                <!-- <td><input type="submit" value="Allocate Room"/> </td> -->
-                <input type="hidden" id="studentId" name="studentId" value='{{ x[0] }}'>
-                <input type="hidden" id="fname" name="fname" value='{{ x[2] }}'>
-                <input type="hidden" id="lname" name="lname" value='{{ x[3] }}'>
-                <td><button onclick="submitShowAllocationRoom()">Allocate Room</button></td>
-
-            </form>
-            {% endif %}
         </tr>
     
     {% endfor %}
