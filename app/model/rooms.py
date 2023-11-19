@@ -14,23 +14,28 @@ def allocatetRoom(studentId,roomType,fromDate,toDate):
     getConnection()
 
     freeRooms = getFreeRooms(roomType)
-    roomToAllocate = freeRooms[0]
-    roomIdToAllocate = roomToAllocate[0] 
-    
-    mysqlquery = "insert into ROOM_ALLOTMENT(STUDENT_ID,ROOM_ID,FROM_DATE,TO_DATE) VALUES (%s, %s, %s,%s)"
-    mycursor = myconn.cursor()
-    values = (studentId, roomIdToAllocate, fromDate, toDate)  
-    mycursor.execute(mysqlquery, values)
-    myconn.commit() 
-    print("alloted succesfully")
-    updateRoomAvilbility(roomIdToAllocate)
+    if(len(freeRooms) !=0):
 
+        roomToAllocate = freeRooms[0]
+        roomIdToAllocate = roomToAllocate[0] 
+        noOfStudentsIntheRoom = roomToAllocate[3]
+        mysqlquery = "insert into ROOM_ALLOTMENT(STUDENT_ID,ROOM_ID,FROM_DATE,TO_DATE) VALUES (%s, %s, %s,%s)"
+        mycursor = myconn.cursor()
+        values = (studentId, roomIdToAllocate, fromDate, toDate)  
+        mycursor.execute(mysqlquery, values)
+        myconn.commit() 
+        print("alloted succesfully")
+        updateRoomAvilbility(roomIdToAllocate,noOfStudentsIntheRoom)
+        return True
+    else:
+        return False
 
-def updateRoomAvilbility(roomId):
+def updateRoomAvilbility(roomId, noOfStudentsIntheRoom):
+    noOfStudentsIntheRoom = noOfStudentsIntheRoom + 1
     getConnection()
-    mysqlquery = "UPDATE ROOMS SET AVAILABILITY='BOOKED' WHERE ID = %s"
+    mysqlquery = "UPDATE ROOMS SET NO_STUDENTS=%s WHERE ID = %s"
     mycursor = myconn.cursor()
-    values = (int(roomId),)
+    values = (noOfStudentsIntheRoom,int(roomId),)
     mycursor.execute(mysqlquery,values)
     myconn.commit() 
     print("updated succesfully")
@@ -39,7 +44,7 @@ def updateRoomAvilbility(roomId):
 def getFreeRooms(roomType):
     getConnection()
 
-    mysqlquery = "SELECT * FROM ROOMS WHERE AVAILABILITY='FREE' AND ROOM_TYPE='" + roomType +"'"
+    mysqlquery = "SELECT * FROM ROOMS WHERE CAPACITY > NO_STUDENTS AND CAPACITY=" + roomType
     mycursor = myconn.cursor()
     mycursor.execute(mysqlquery)
     allFreeRooms=mycursor.fetchall()
@@ -47,19 +52,19 @@ def getFreeRooms(roomType):
     return allFreeRooms
 
 
-def printstudents():
-    getConnection()
+# def printstudents():
+#     getConnection()
 
-    mysqlquery = "SELECT * FROM STUDENTS"
-    mycursor = myconn.cursor()
-    mycursor.execute(mysqlquery)
-    allstudent=mycursor.fetchall()
-    #print(allstudent)
-    return allstudent
-#printstudents()
+#     mysqlquery = "SELECT * FROM STUDENTS"
+#     mycursor = myconn.cursor()
+#     mycursor.execute(mysqlquery)
+#     allstudent=mycursor.fetchall()
+#     #print(allstudent)
+#     return allstudent
+# #printstudents()
 
-#allocatetRoom(2,"DOUBLE","2022-05-22","2022=05-26")
-
+allFreeRooms = getFreeRooms("3")
+print(len(allFreeRooms))
     
 
     

@@ -9,7 +9,10 @@
             text-align: center;
             padding: 50px;
         }
-
+		div{
+        	margin-top: 8px;
+            margin-bottom: 16px;
+        }
         form {
             max-width: 400px;
             margin: 0 auto;
@@ -23,7 +26,7 @@
             font-weight: bold;
         }
 
-        input[type="text"], select, date {
+        input[type="text"], date {
             width: 100%;
             padding: 8px;
             margin-top: 8px;
@@ -48,22 +51,30 @@
     </style>
 </head>
 <body>
-
+    <form action="/home" method="post" class="form-group-home">
+        <div> <input type="submit" name="home" value="Home"></div>
+    </form>
+<h3> Room Allocation </h3>
 <form action="/allocateRoom" method="POST">
-    {{ studentId }}
+    
     <input type="hidden" id="studentId" name="studentId" value="{{ studentId }}"/>
     <label for="fname">Student name: {{ firstname }} {{ lastname }}</label>
     <div></div>
     <label for="dropbox">Room Type:</label>
+    <div>
     <select id="roomType" name="roomType">
-        <option value="DOUBLE">DOUBLE</option>
-        <option value="TRIPLE">TRIPLE</option>
-    </select><br>
-    <label for="fromDate">From Date: </label><input type="date" id="fromDate" name="fromDate" />
-    <label for="toDate">To Date: </label><input type="date" id="toDate"  name="toDate"/>
+        <option value="2">DOUBLE</option>
+        <option value="3">TRIPLE</option>
+    </select>
+   	</div>
+    <div>    <label for="fromDate">From Date: </label></div>
+    <div><input type="date" id="fromDate" name="fromDate" /> </div>
+    <div> <label for="toDate">To Date: </label></div>
+    <div><input type="date" id="toDate"  name="toDate"/></div>
+    <div><input type="submit" value="Allocate Room"></div>
     
-    <input type="submit" value="Allocate Room">
 </form>
+
 
 </body>
 </html>

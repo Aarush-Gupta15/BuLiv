@@ -3,7 +3,7 @@
 __author__ = "Aarush Gupta"
 __version__ = "1.0"
 __maintainer__ = "Aarush Gupta"
-__email__ = "rob@spot.colorado.edu"
+__email__ = "E23CSEU0008@bennett.edu.in"
 __status__ = "Under Review"
 
 
@@ -30,12 +30,14 @@ def login():
     password = request.form['Password']
 
     if (userName == 'admin' and password == "1212"):
-        #return "Welcome " + userName
-        return render_template('welcome.html')
+        return showHome()
     else:
-        return "Invalid Uzername/Password"
+        return "Invalid Username/Password"
 
-
+@app.route('/home', methods=['GET', 'POST'])
+def showHome():
+     return render_template('home.html')
+     
 @app.route('/programs', methods=['GET', 'POST'])
 def programs():
     results = getprograms()
@@ -87,9 +89,11 @@ def allocateRoom():
         toDate=request.form['toDate']
        
         print(studentId,roomType,fromDate,toDate)
-        allocatetRoom(studentId,roomType,fromDate,toDate)
-
-    # viewstudents()
+        
+        if(allocatetRoom(studentId,roomType,fromDate,toDate)):
+            return viewstudents()
+        else:
+             return "<h3>No room available in this category.</h3>"
        
 
 

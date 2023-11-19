@@ -49,25 +49,31 @@
 </head>
 <body>
 
-<form action="/addStudent" method="POST">
-    <label for="fname">First name:</label>
-    <input type="text" id="fname" name="fname"><br>
+<div class="container">
     
-    <label for="lname">Last name:</label>
-    <input type="text" id="lname" name="lname"><br>
-    
-    <label for="mobile">MOBILE NUMBER:</label>
-    <input type="text" id="mobile" name="mobile"><br>
-    
-    <label for="dropbox">Select the course:</label>
-    <select id="program" name="program">
-        <option value="1">BTECH</option>
-        <option value="2">BCA</option>
-        <option value="3">BBA</option>
-    </select><br>
-    
-    <input type="submit" value="Submit">
-</form>
+    <form action="/addStudent" method="POST">
+        <label for="fname">First name:</label>
+        <input type="text" id="fname" name="fname"><br>
+        
+        <label for="lname">Last name:</label>
+        <input type="text" id="lname" name="lname"><br>
+        
+        <label for="mobile">MOBILE NUMBER:</label>
+        <input type="text" id="mobile" name="mobile"><br>
+        
+        <label for="dropbox">Select the course:</label>
+        <select id="program" name="program">
+            <option value="1">BTECH</option>
+            <option value="2">BCA</option>
+            <option value="3">BBA</option>
+        </select><br>
+        
+        <input type="submit" value="Register Student">
+    </form>
+    <form action="/home" method="post" class="form-group-home">
+        <div> <input type="submit" name="home" value="Home"></div>
+    </form>
+</div>
 
 </body>
 </html>
