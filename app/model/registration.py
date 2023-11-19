@@ -1,3 +1,4 @@
+# registration.py
 import mysql.connector
  
 #inserting student data

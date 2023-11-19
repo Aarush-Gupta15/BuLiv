@@ -32,4 +32,3 @@ def getprograms():
     myconn.close()
 
 
-getprograms()

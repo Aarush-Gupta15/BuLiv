@@ -1,3 +1,4 @@
+#rooms.py
 import mysql.connector  
 
 
@@ -85,9 +86,5 @@ def getAllRooms():
     print(result)
     return result
 
-# allFreeRooms = getFreeRooms("3")
-# print(len(allFreeRooms))
-getRoomById("1")
-    
 
     
