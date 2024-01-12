@@ -1,6 +1,8 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registration of Students</title>
     <style>
         body {
@@ -17,6 +19,10 @@
             padding: 20px;
             border-radius: 10px;
             box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            color: red;
         }
 
         label {
@@ -48,34 +54,17 @@
     </style>
 </head>
 <body>
+    <div class="container">
+        <h1>WHAT TO UPDATE</h1>
 
-<div class="container">
-    <h3>Student Registration</h3>
-    <form action="/addStudent" method="POST">
-        <label for="fname">First name:</label>
-        <input type="text" id="fname" name="fname"><br>
-        
-        <label for="lname">Last name:</label>
-        <input type="text" id="lname" name="lname"><br>
-        
-        <label for="mobile">MOBILE NUMBER:</label>
-        <input type="text" id="mobile" name="mobile"><br>
-        
-        <label for="dropbox">Select the course:</label>
-        <select id="program" name="program">
-            <option value="1">BTECH</option>
-            <option value="2">BCA</option>
-            <option value="3">BBA</option>
-            <option value="4">LLB</option>
-
-        </select><br>
-        
-        <input type="submit" value="Register Student">
-    </form>
-    <form action="/home" method="post" class="form-group-home">
-        <div> <input type="submit" name="home" value="Home"></div>
-    </form>
-</div>
-
+        <div style="text-align: center">
+            <form action="/studentname" method="post" class="form-group">
+                <input type="submit" name="StudentName" value="Student Name">
+            </form>
+            <form action="/studentmobilenumber" method="get" class="form-group">
+                <input type="submit" name="StudentMobileNumber" value="Student Mobile Number">
+            </form>
+        </div>
+    </div>
 </body>
 </html>

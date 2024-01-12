@@ -111,9 +111,45 @@ def allocateRoom():
             return viewstudents()
         else:
              return "<h3>No room available in this category.</h3>"
+
        
+@app.route('/increaseCap',methods=['GET','POST'])
+def increaseCap():
+       
+        roomid=request.form['roomId']
+        currentCap=request.form['currentCap']
+        increasecapicity(currentCap,roomid)
+        #print(roomid,currentCap)
+        return viewRooms()
 
+@app.route('/updatestudent',methods=['GET','POST'])
+def updatestudent():
+        return render_template('option.html')
 
+@app.route('/studentname',methods=['POST'])
+def studentname():
+         return render_template('updatestudent.html')
+
+@app.route('/studentupdated',methods=['POST'])
+def studentupdated():
+        
+        firstname=request.form['studentfirstName']
+        id=request.form['ROLLNUMBER']
+        Lastname=request.form['studentLastName']
+        updatestudentdata(firstname,Lastname,id)
+        return "updated name succesfully"
+
+@app.route('/studetmobilenumber',methods=['GET','POST'])
+def studetmobilenumber():
+      return render_template('updatestudentmobilenumber.html')
+
+@app.route('/studetmobilenumberupdate',methods=['POST'])
+def studetmobilenumberupdate():
+        m_number=request.form['Studentmobilenumber']
+        id=request.form['ROLLNUMBER']
+        updatestudentmobilenumber(m_number,id)
+        return "updated mobile number succesfully"
+        
 
 if __name__ == "__main__":
     app.run()

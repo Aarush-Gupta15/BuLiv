@@ -12,107 +12,94 @@
         }
 
         #myInput {
-        background-image: url('/static/searchicon1.png'); /* Add a search icon to input */
-        background-position: 10px 12px; /* Position the search icon */
-        background-repeat: no-repeat; /* Do not repeat the icon image */
-        width: 100%; /* Full-width */
-        font-size: 16px; /* Increase font-size */
-        padding: 12px 20px 12px 40px; /* Add some padding */
-        border: 1px solid #ddd; /* Add a grey border */
-        margin-bottom: 12px; /* Add some space below the input */
+            background-image: url('/static/searchicon1.png');
+            background-position: 10px 12px;
+            background-repeat: no-repeat;
+            width: 100%;
+            font-size: 16px;
+            padding: 12px 20px 12px 40px;
+            border: 1px solid #ddd;
+            margin-bottom: 12px;
         }
 
         #myTable {
-        border-collapse: collapse; /* Collapse borders */
-        width: 100%; /* Full-width */
-        border: 1px solid #ddd; /* Add a grey border */
-        font-size: 18px; /* Increase font-size */
+            border-collapse: collapse;
+            width: 100%;
+            border: 1px solid #ddd;
+            font-size: 18px;
         }
 
         #myTable th, #myTable td {
-        text-align: left; /* Left-align text */
-        padding: 12px; /* Add padding */
+            text-align: left;
+            padding: 12px;
         }
 
         #myTable tr {
-        /* Add a bottom border to all table rows */
-        border-bottom: 1px solid #ddd;
+            border-bottom: 1px solid #ddd;
         }
 
         #myTable tr.header, #myTable tr:hover {
-        /* Add a grey background color to the table header and on hover */
-        background-color: #f1f1f1;
+            background-color: #f1f1f1;
+        }
+
+        .increaseCapacityBtn {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
         }
     </style>
-
 </head>
 
 <body>
     <h3>Room Details</h3>
 
-  
     <table id="myTable">
-    <tr class="header">
-        <th style="width:20%;">Room No</th>
-        <th style="width:30%;">Block</th>
-        <th style="width:30%;">Capacity</th>
-        <th style="width:20%;">Current number of Student</th>
-    </tr>
-    {% for x in results %}
-        <tr>
-            <td>{{ x[0] }}</td>
-            <td>{{ x[1] }}</td>
-            <td>{{ x[2] }}</td>
-            <td>{{ x[3] }}</td>
-            
-          
-            
-            
+        <tr class="header">
+            <th style="width:20%;">Room No</th>
+            <th style="width:30%;">Block</th>
+            <th style="width:30%;">Capacity</th>
+            <th style="width:20%;">Current number of Student</th>
+           
         </tr>
-    
-    {% endfor %}
+        {% for x in results %}
+            <tr>
+                <td>{{ x[0] }}</td>
+                <td>{{ x[1] }}</td>
+                <td id="capacityCell{{ loop.index }}">{{ x[2] }}</td>
+                <td>{{ x[3] }}</td>
+               
 
+                
+            </tr>
+        {% endfor %}
     </table>
-   
-    </div>
+
     <script>
-function myFunction() {
-  // Declare variables
-  var input, filter, table, tr, td, i, txtValue;
-  input = document.getElementById("myInput");
-  filter = input.value.toUpperCase();
-  table = document.getElementById("myTable");
-  tr = table.getElementsByTagName("tr");
+        function myFunction() {
+            // ... (your existing search function)
+        }
 
-  // Loop through all table rows, and hide those who don't match the search query
-  for (i = 0; i < tr.length; i++) {
-    td = tr[i].getElementsByTagName("td")[1];
-    if (td) {
-      txtValue = td.textContent || td.innerText;
-      if (txtValue.toUpperCase().indexOf(filter) > -1) {
-        tr[i].style.display = "";
-      } else {
-        tr[i].style.display = "none";
-      }
-    }
-  }
-}
-function submitFormRoomDetails() {
-        let form = document.getElementById("form-roomDetails");
-        form.submit();
-}
+        function submitFormRoomDetails() {
+            let form = document.getElementById("form-roomDetails");
+            form.submit();
+        }
 
-function submitShowAllocationRoom() {
-        let form = document.getElementById("form-showAllocateRoom");
-        form.submit();
-}
+        function submitShowAllocationRoom() {
+            let form = document.getElementById("form-showAllocateRoom");
+            form.submit();
+        }
 
+        function submitShowAllocationRoom() {
+          let form = document.getElementById("form-showAllocateRoom");
+          form.submit();
+        }
+  
 
-</script>
-
-
-
-
+       
+    </script>
 </body>
 
 </html>

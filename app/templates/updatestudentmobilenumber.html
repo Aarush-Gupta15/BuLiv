@@ -48,34 +48,19 @@
     </style>
 </head>
 <body>
+    <h2>You can update students from here</h2>
 
-<div class="container">
-    <h3>Student Registration</h3>
-    <form action="/addStudent" method="POST">
-        <label for="fname">First name:</label>
-        <input type="text" id="fname" name="fname"><br>
-        
-        <label for="lname">Last name:</label>
-        <input type="text" id="lname" name="lname"><br>
-        
-        <label for="mobile">MOBILE NUMBER:</label>
-        <input type="text" id="mobile" name="mobile"><br>
-        
-        <label for="dropbox">Select the course:</label>
-        <select id="program" name="program">
-            <option value="1">BTECH</option>
-            <option value="2">BCA</option>
-            <option value="3">BBA</option>
-            <option value="4">LLB</option>
+    <form action="/studetmobilenumberupdate" method="post">
 
-        </select><br>
+        <label for="Studentmobilenumber">Student Mobile Number:</label>
+        <input type="text" id="Studentmobilenumber" name="Studentmobilenumber" required>
+
+ 
+        <label for="ROLLNUMBER">ROLL NUMBER:</label>
+        <input type="text" id="ROLLNUMBER" name="ROLLNUMBER" required>
         
-        <input type="submit" value="Register Student">
+        <input type="submit" value="Update Student">
     </form>
-    <form action="/home" method="post" class="form-group-home">
-        <div> <input type="submit" name="home" value="Home"></div>
-    </form>
-</div>
 
 </body>
 </html>

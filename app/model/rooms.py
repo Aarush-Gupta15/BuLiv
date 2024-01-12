@@ -86,5 +86,27 @@ def getAllRooms():
     print(result)
     return result
 
+def findcapicity(id):
+    getConnection()
+    mysqlquery=f"select * from rooms where id = {id}"
+    mycursor = myconn.cursor()
+    mycursor.execute(mysqlquery)
+    myconn.commit()
+    mycursor.close()
+    print("process done")
 
-    
+
+def increasecapicity(currentCapacity, roomId):
+    getConnection()
+
+    currentCapacity= int(currentCapacity) + 1
+    mysqlquery=f"UPDATE ROOMS SET CAPACITY = {currentCapacity} WHERE ID={roomId}"
+    mycursor = myconn.cursor()
+    mycursor.execute(mysqlquery)
+    myconn.commit()
+    mycursor.close()
+    print("process done")
+#increasecapicity()
+
+
+                    

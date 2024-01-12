@@ -35,6 +35,25 @@ def printstudents():
     return allstudent
 #printstudents()
 
+def updatestudentdata(firstname,studentLastName,id):
+    getConnection()
+    int(id)
+    mysqlquery="update STUDENTS Set FIRST_NAME=%s,SECOND_NAME=%s WHERE ID=%s"
+    values=(firstname,studentLastName,id)
+    mycursor=myconn.cursor()
+    mycursor.execute(mysqlquery,values)
+    myconn.commit()
+
+def updatestudentmobilenumber(number,id):
+    getConnection()
+    int(number)
+    int(id)
+    mysqlquery="update students set MOBILE=%s where ID =%s"
+    values=(number,id)
+    mycursor=myconn.cursor()
+    mycursor.execute(mysqlquery,values)
+    myconn.commit()
+    print("done")
 
 
     

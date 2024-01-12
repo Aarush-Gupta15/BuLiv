@@ -57,6 +57,7 @@
         <th style="width:30%;">Block</th>
         <th style="width:30%;">Capacity</th>
         <th style="width:20%;">Current number of Student</th>
+        <th style="width:20%;">Action</th>
     </tr>
     {% for x in results %}
         <tr>
@@ -64,7 +65,15 @@
             <td>{{ x[1] }}</td>
             <td>{{ x[2] }}</td>
             <td>{{ x[3] }}</td>
-            
+            <form id="increaseCap" action="/increaseCap" method="post">
+                
+              <!-- <td><input type="submit" value="Allocate Room"/> </td> -->
+              <input type="hidden" id="roomId" name="roomId" value='{{ x[0] }}'>
+              <input type="hidden" id="currentCap" name="currentCap" value='{{ x[2] }}'>
+              
+              <td><button onclick="increaseCapacity()">Increase Room Capacity 1</button></td>
+
+          </form>  
           
             
             
@@ -107,6 +116,10 @@ function submitShowAllocationRoom() {
         form.submit();
 }
 
+function increaseCapacity() {
+  let form = document.getElementById("increaseCap");
+  form.submit();
+}
 
 </script>
 
