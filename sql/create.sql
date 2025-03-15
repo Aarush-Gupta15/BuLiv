@@ -38,5 +38,5 @@ TO_DATE DATE
 
 
 
-show tables
-select * from students
+show tables;
+select * from students;
